@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TarefaController extends Controller
 {
@@ -19,7 +20,15 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        echo 'index';
+        // fazendo autenticação direto nos métodos
+        // if (auth()->check()) {
+        // if (Auth::check()) {
+            $nome = auth()->user()->name;
+            $email = Auth::user()->email;
+            echo "$nome, $email";
+        // } else {
+        //     echo 'faça login';
+        // }
     }
 
     /**
